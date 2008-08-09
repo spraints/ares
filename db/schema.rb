@@ -9,12 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080809231042) do
+ActiveRecord::Schema.define(:version => 20080809232123) do
 
   create_table "employees", :force => true do |t|
     t.string   "login"
     t.string   "email"
-    t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"

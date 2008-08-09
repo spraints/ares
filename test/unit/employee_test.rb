@@ -20,39 +20,9 @@ class EmployeeTest < Test::Unit::TestCase
     end
   end
 
-  def test_should_require_password
-    assert_no_difference 'Employee.count' do
-      u = create_employee(:password => nil)
-      assert u.errors.on(:password)
-    end
-  end
-
-  def test_should_require_password_confirmation
-    assert_no_difference 'Employee.count' do
-      u = create_employee(:password_confirmation => nil)
-      assert u.errors.on(:password_confirmation)
-    end
-  end
-
-  def test_should_require_email
-    assert_no_difference 'Employee.count' do
-      u = create_employee(:email => nil)
-      assert u.errors.on(:email)
-    end
-  end
-
-  def test_should_reset_password
-    employees(:quentin).update_attributes(:password => 'new password', :password_confirmation => 'new password')
-    assert_equal employees(:quentin), Employee.authenticate('quentin', 'new password')
-  end
-
-  def test_should_not_rehash_password
-    employees(:quentin).update_attributes(:login => 'quentin2')
-    assert_equal employees(:quentin), Employee.authenticate('quentin2', 'test')
-  end
-
   def test_should_authenticate_employee
-    assert_equal employees(:quentin), Employee.authenticate('quentin', 'test')
+    # TODO -- should use AD for authentication instead of password-less logins
+    assert_equal employees(:quentin), Employee.authenticate('quentin', 'TODO -- Use AD')
   end
 
   def test_should_set_remember_token
@@ -96,7 +66,7 @@ class EmployeeTest < Test::Unit::TestCase
 
 protected
   def create_employee(options = {})
-    record = Employee.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+    record = Employee.new({ :login => 'quire', }.merge(options))
     record.save
     record
   end
