@@ -12,6 +12,9 @@
 ActiveRecord::Schema.define(:version => 20080810002109) do
 
   create_table "academy_sessions", :force => true do |t|
+    t.string   "name",       :null => false
+    t.date     "start"
+    t.date     "end"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

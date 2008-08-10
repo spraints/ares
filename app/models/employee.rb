@@ -1,5 +1,7 @@
 require 'digest/sha1'
 class Employee < ActiveRecord::Base
+  has_many :students
+
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
