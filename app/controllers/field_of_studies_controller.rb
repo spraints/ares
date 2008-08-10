@@ -1,0 +1,2 @@
+class FieldOfStudiesController < ApplicationController
+end

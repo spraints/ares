@@ -1,4 +1,24 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :academy_sessions
+
+  map.resources :academy_sessions
+
+  map.resources :final_scores
+
+  map.resources :scores
+
+  map.resources :students
+
+  map.resources :assignments
+
+  map.resources :course_resources
+
+  map.resources :course_sessions
+
+  map.resources :courses
+
+  map.resources :field_of_studies
+
   map.resources :employees
 
   map.resource :session

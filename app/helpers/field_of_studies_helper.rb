@@ -1,0 +1,2 @@
+module FieldOfStudiesHelper
+end
